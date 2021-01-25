@@ -9,16 +9,16 @@
       >
         <h2 class="card-title">
           {{task.title}}
-          <AppStatus :type="'done'" />
+          <AppStatus :type="task.status" />
         </h2>
         <p>
           <strong>
             <small>
-              {{new Date().toLocaleDateString()}}
+              {{task.date}}
             </small>
           </strong>
         </p>
-        <button class="btn primary" @click="$router.push({path: `/:${id}`})">Посмотреть</button>
+        <button class="btn primary" @click="$router.push({path: `/:${task.id}`})">Посмотреть</button>
       </div>
     </div>
   </div>
