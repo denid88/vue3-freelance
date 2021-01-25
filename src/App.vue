@@ -1,11 +1,15 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <AppNavBar />
+  <div class="container with-nav">
+    <router-view />
   </div>
-  <router-view/>
 </template>
-
+<script>
+import AppNavBar from '@/components/AppNavBar'
+export default {
+  components: { AppNavBar }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -17,7 +21,6 @@
 
 #nav {
   padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;
