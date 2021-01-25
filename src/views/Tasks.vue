@@ -8,7 +8,7 @@
         :key="task.id"
       >
         <h2 class="card-title">
-          Название задачи
+          {{task.title}}
           <AppStatus :type="'done'" />
         </h2>
         <p>
@@ -35,20 +35,8 @@ export default {
     const store = useStore()
 
     const activeTasks = computed(() => store.getters['tasksModule/activeTasks'])
-    const rawTasks = computed(() => store.state.tasksModule.tasks)
-    const tasks = rawTasks.value.map(t => toRefs(t))
+    const tasks = computed(() => store.state.tasksModule.tasks)
 
-    onBeforeMount(() => {
-      store.dispatch('tasksModule/getTasks')
-    })
-
-    onBeforeUpdate(() => {
-      store.dispatch('tasksModule/getTasks')
-    })
-
-
-
-    console.log(tasks)
     return {
       activeTasks,
       tasks

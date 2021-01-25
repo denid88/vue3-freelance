@@ -6,8 +6,16 @@
 </template>
 <script>
 import AppNavBar from '@/components/AppNavBar'
+import { onBeforeMount } from 'vue'
+import { useStore } from 'vuex'
 export default {
-  components: { AppNavBar }
+  components: { AppNavBar },
+  setup() {
+    const store = useStore()
+    onBeforeMount(() => {
+      store.dispatch('tasksModule/getTasks')
+    })
+  }
 }
 </script>
 <style lang="scss">
